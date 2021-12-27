@@ -14,7 +14,7 @@ Dark green: #28b485
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
@@ -32,6 +32,7 @@ body {
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
+  /* Clippy - CSS Clip path maker: bennettfeely.com/clippy */
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   position: relative;
 }
@@ -63,6 +64,7 @@ body {
   color: #fff;
   text-transform: uppercase;
 
+  /* Hack to fix the shaking at the end of the animation */
   backface-visibility: hidden;
   margin-bottom: 60px;
 }
@@ -92,15 +94,13 @@ body {
   animation-timing-function: ease-out; */
 
   animation: moveInRight 1s ease-out;
-
-  /* animation-iteration-count: 3; */
-  /* animation-delay: 3s; */
 }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
     transform: translateX(-100px);
+    /* transform: translateX(-100px) rotate(50deg); */
   }
 
   80% {
@@ -160,6 +160,7 @@ body {
 
 .btn:active {
   transform: translateY(-1px);
+  /* Box shadow parameters: x-direction y-direction blur color */
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -169,11 +170,13 @@ body {
 }
 
 .btn::after {
-  content: "";
+  content: '';
   display: inline-block;
   height: 100%;
   width: 100%;
   border-radius: 100px;
+
+  /* button position needs to be set to relative for the below absolute to occur */
   position: absolute;
   top: 0;
   left: 0;
