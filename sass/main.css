@@ -33,6 +33,10 @@ body {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   position: relative;
+  /* Why is this hover effect not working??? */
+  /* .logo:hover {
+    animation: moveInRight 1s ease-out;
+  } */
 }
 
 .header__logo-box {
@@ -45,10 +49,6 @@ body {
   height: 3.5rem;
 }
 
-/* Why is this hover effect not working??? */
-/* .logo:hover {
-  animation: moveInRight 1s ease-out;
-} */
 .header__text-box {
   position: absolute;
   top: 40%;
@@ -88,8 +88,8 @@ body {
   font-weight: 700;
   letter-spacing: 1.75rem;
   /* animation-name: moveInRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; */
+    animation-duration: 1s;
+    animation-timing-function: ease-out; */
   -webkit-animation: moveInRight 1s ease-out;
           animation: moveInRight 1s ease-out;
 }
@@ -191,8 +191,7 @@ body {
 }
 
 /* .btn:link - link is the psuedoclass which is the special state of the button selector */
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -211,6 +210,12 @@ body {
           box-shadow: 0 1rem 20rem rgba(0, 0, 0, 0.2);
 }
 
+.btn:hover::after {
+  -webkit-transform: scaleX(1.4) scaleY(1.6);
+          transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
 .btn:active {
   -webkit-transform: translateY(-0.1rem);
           transform: translateY(-0.1rem);
@@ -222,6 +227,10 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777777;
+}
+
+.btn--white::after {
+  background-color: #fff;
 }
 
 .btn::after {
@@ -237,16 +246,6 @@ body {
   z-index: -1;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-}
-
-.btn--white::after {
-  background-color: #fff;
-}
-
-.btn:hover::after {
-  -webkit-transform: scaleX(1.4) scaleY(1.6);
-          transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
 }
 
 .btn--animated {
